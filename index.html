@@ -1,21 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8">
-	<title>Testing</title>
-	<style>
-		h1{
-			transition: 1s;
-		}
-		.flash{
-			opacity: .1;
-			color: red;
-		}
-	</style>
-</head>
-<body>
-<a href="subpage.html">Sub</a>
-<h1 id="myHeader">My future...</h1>
-<script src="js/scripts.js"></script>
-</body>
+	<head>
+		<meta charset="UTF-8">
+		<title>Testing</title>
+		<style>
+			h1{
+				transition: .5s;
+				cursor: pointer;
+				position: fixed;
+				margin-left: 1em;
+			}
+			#header2{
+				top: 2em;
+			}
+			.flash{
+				animation: flash .2s infinite;
+			}
+			@keyframes flash{
+				50%{
+					opacity: 0;
+				}
+			}
+			#hero{
+				height: 200vh;
+				width: 200vw;
+				border: 1px solid;
+			}
+			.red{
+				background: red;
+			}
+			.green{
+				background: green;
+			}
+			.blue{
+				background: blue;
+			}
+			.orange{
+				background: orange;
+			}
+			.purple{
+				background: purple;
+			}
+		</style>
+	</head>
+	<body>
+		<h1 id="header1">Scroll X</h1>
+		<h1 id="header2">Scroll Y</h1>
+		<div id="hero"></div>
+		<script src="js/scripts.js"></script>
+	</body>
 </html>
