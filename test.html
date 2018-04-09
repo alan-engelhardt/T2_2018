@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>Test</title>
+		<style>
+			main{
+				width: 70vw;
+				height: 40vw;
+				border: solid 1px;
+				position: relative;
+				margin: auto;
+				overflow: hidden;
+			}
+			#house, #pig, #wolf{
+				position: absolute;
+				background-size: cover;
+			}
+			#house{
+				background-image: url("media/house.gif");
+				width: 30vw;
+				height: 30vw;
+				bottom: 3vw;
+				right: 10vw;
+			}
+			#pig{
+				background-image: url("media/pig3.gif");
+				width: 10vw;
+				height: 12vw;
+				bottom: 4vw;
+				right: 10vw;
+			}
+			#wolf{
+				background-image: url("media/wolf.gif");
+				z-index: 10;
+				width: 13vw;
+				height: 20vw;
+				bottom: 1vw;
+				left: -14vw;
+			}
+
+			#wolf.enter {
+				animation: moveWolf 1s linear forwards;
+			}
+
+			#pig.shake {
+				animation: shake .05s alternate infinite;
+			}
+			#house.skew{
+				animation: houseSkew 4s forwards;
+			}
+
+			@keyframes moveWolf {
+				to {
+					transform: translate(40vw);
+				}
+			}
+			@keyframes shake {
+				from{
+					transform: rotate(2deg);
+				}
+				to{
+					transform: rotate(-2deg) scale(.9);
+				}
+			}
+			@keyframes houseSkew{
+				33%{
+					transform: skewX(-20deg);
+				}
+				40%{
+					transform: skewX(0deg);
+				}
+				66%{
+					transform: skewX(-30deg);
+				}
+				90%{
+					transform: skewX(0deg);
+				}
+				100%{
+					transform: skewX(0deg) translate(50vw, 0) rotate(-300deg);
+				}
+			}
+
+		</style>
+	</head>
+	<body>
+		<main>
+			<div id="pig"></div>
+			<div id="wolf"></div>
+			<div id="house"></div>
+		</main>
+		<audio id="open-the-door">
+			<source src="media/wolf_speak_open_the_door.m4a">
+		</audio>
+		<audio id="no-go">
+			<source src="media/pig_speak_go_away.m4a">
+		</audio>
+		<audio id="ok-then">
+			<source src="media/wolf_speak_ok_then.m4a">
+		</audio>
+		<audio id="puff">
+			<source src="media/puff.m4a">
+		</audio>
+		<script src="test.js"></script>
+	</body>
+</html>
+
+
