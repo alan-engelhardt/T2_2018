@@ -1,7 +1,7 @@
 let header1 = document.querySelector("#header1");
 let header2 = document.querySelector("#header2");
+let header3 = document.querySelector("#header3");
 let hero = document.querySelector("#hero");
-let counter = 0;
 
 header1.addEventListener("click", changeHeader);
 header2.addEventListener("click", changeHeader);
@@ -16,21 +16,21 @@ function changeHeader() {
 	this.classList.toggle("flash");
 }
 
+let counter = 0;
+
 function changeHero() {
-	counter++;
-	console.log(counter);
-	hero.classList = "";
+	header3.textContent = counter;
+	counter++; //same as counter=counter+1
 	if (counter == 1) {
-		hero.classList.add("red");
+		hero.style.background="red";
 	} else if (counter == 2) {
-		hero.classList.add("green");
+		hero.style.background="green";
 	} else if (counter == 3) {
-		hero.classList.add("blue");
+		hero.style.background="blue";
 	} else if (counter == 4) {
-		hero.classList.add("orange");
+		hero.style.background="orange";
 	} else if (counter == 5) {
-		hero.classList.add("purple");
-	}else{
+		hero.style.background="purple";
 		counter=0;
 	}
 }
