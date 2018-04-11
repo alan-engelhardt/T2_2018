@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>svg test</title>
+
+		<style>
+			#alan, #testSVG{
+				width: 40vh;
+				height: 40vh;
+				fill: none;
+				stroke: blue;
+				stroke-width: 1px;
+				stroke-dasharray: 1;
+				stroke-dashoffset: 1;
+			}
+
+			#alan{
+				width: 90vw;
+			}
+
+			.draw{
+				animation: draw 1s linear forwards;
+			}
+
+			@keyframes draw{
+				to{
+					stroke-dashoffset: 0;
+				}
+			}
+
+			#example{
+				stroke: orange;
+				stroke-width: 2px;
+				fill: none;
+				font-family: sans-serif;
+			}
+
+			#example #svgText{
+				fill: black;
+				stroke: none;
+				text-anchor: middle;
+				font-size: 1.2em;
+			}
+
+		</style>
+	</head>
+	<body>
+
+		<svg id="alan" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 310.35 125.74"><path pathLength=1 class="p" d="M32.74,92.9,20.63,129.58H5.06L44.67,13H62.84l39.79,116.61H86.54L74.09,92.9ZM71,81.14,59.55,47.57C57,40,55.23,33,53.5,26.29h-.35c-1.73,6.92-3.63,14-5.88,21.11L35.85,81.14Z" transform="translate(-4.36 -6.24)"/><path pathLength=1 class="p" d="M118.72,6.74h15.22V129.58H118.72Z" transform="translate(-4.36 -6.24)"/><path pathLength=1 class="p" d="M205.91,129.58,204.7,119h-.52c-4.67,6.58-13.67,12.46-25.6,12.46-17,0-25.61-11.94-25.61-24,0-20.24,18-31.31,50.35-31.14V74.56c0-6.92-1.91-19.38-19-19.38a41.76,41.76,0,0,0-21.8,6.23l-3.46-10c6.92-4.5,16.95-7.44,27.5-7.44,25.61,0,31.84,17.47,31.84,34.25v31.32a117.79,117.79,0,0,0,1.38,20.07Zm-2.25-42.74c-16.61-.34-35.46,2.6-35.46,18.86,0,9.86,6.57,14.53,14.35,14.53a20.85,20.85,0,0,0,20.25-14,15.88,15.88,0,0,0,.86-4.84Z" transform="translate(-4.36 -6.24)"/><path pathLength=1 class="p" d="M242.93,68.51c0-8.65-.17-15.75-.69-22.67h13.49l.87,13.84h.34c4.16-8,13.84-15.74,27.68-15.74,11.6,0,29.59,6.92,29.59,35.64v50H299V81.31c0-13.5-5-24.74-19.37-24.74-10,0-17.82,7.09-20.42,15.57a21.93,21.93,0,0,0-1,7.09v50.35H242.93Z" transform="translate(-4.36 -6.24)"/></svg>
+
+		<svg id="testSVG" viewBox="-.5 -.5 101 101">
+			<rect pathLength=1 class="p" x="80" width="-60" height="100"/>
+			<circle pathLength=1 class="p" cx="50" cy="50" r="50"/>
+			<path pathLength=1 class="p" d="M0 100 L50 0 L 100 100 Z" />
+		</svg>
+
+		<svg id="example" height="400" width="450">
+			<path id="lineAB" d="M 100 350 l 150 -300" />
+			<path id="lineBC" d="M 250 50 l 150 300" />
+			<path d="M 175 200 l 150 0" />
+			<path d="M 100 350 q 150 -300 300 0" />
+
+			<!-- Label the points -->
+			<g id="svgText">
+				<text x="100" y="350" dx="-30">A</text>
+				<text x="250" y="50" dy="-10">B</text>
+				<text x="400" y="350" dx="30">C</text>
+			</g>
+		</svg>
+
+		<script>
+			const svg = document.querySelector("svg");
+			const ps = document.querySelectorAll(".p");
+
+			ps.forEach(drawSVG);
+
+			function drawSVG(p, i){
+				setTimeout(function(){
+					p.classList.add("draw");
+					p.style.stroke="hsl(" + i*50 + ", 100%, 50%)";
+				}, i * 500);
+			}
+
+		</script>
+	</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8">
+		<title>creating svg elements</title>
+		<style>
+			body{
+				margin: 0;
+				padding: 0;
+				transition: 1s linear;
+			}
+			svg{
+				height: 100vh;
+				width: 100vw;
+			}
+		</style>
+	</head>
+	<body>
+		<svg></svg>
+		<script>
+			const body = document.querySelector("body");
+			const svg = document.querySelector("svg");
+			let x, y, radius, circle, col, drawing;
+			svg.addEventListener("mousedown", start);
+			svg.addEventListener("mousemove", draw);
+			window.addEventListener("mouseup", stop);
+
+			function start(e){
+				x=e.x;
+				y=e.y;
+				drawing = 1;
+				col = Math.floor(Math.random()*250);
+				circle = document.createElementNS("http://www.w3.org/2000/svg", "circle");
+			}
+
+			function stop(){
+				drawing = null;
+			}
+
+			function draw(e){
+				if(drawing){
+					//radius = Math.abs(x-e.x);
+					const dx = Math.abs(x-e.x);
+					const dy = Math.abs(y-e.y);
+					radius = Math.sqrt(dx*dx+dy*dy);
+					circle.setAttribute("cx", x);
+					circle.setAttribute("cy", y);
+					circle.setAttribute("r", radius);
+					circle.setAttribute("fill", "hsl(" + col + ", 100%, 50%)");
+					svg.appendChild(circle);
+				}
+			}
+		</script>
+	</body>
+</html>

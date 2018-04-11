@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="">
+
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title></title>
+	<link rel="stylesheet" href="">
+	<style>
+		body{
+			background-color: #000;
+		}
+		.draw {
+			animation: dash 2s linear forwards;
+		}
+
+		@keyframes dash {
+			75%{
+				fill: #000;
+				stroke-dashoffset: 0;
+			}
+			to {
+				fill: #FFF;
+			}
+		}
+
+		.cls-1 {
+			fill: none;
+			stroke: #FFE;
+			stroke-width: 1;
+			stroke-dasharray: 1;
+			stroke-dashoffset: 1;
+		}
+	</style>
+</head>
+
+<body>
+
+	<svg id="name" data-name="Layer 1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 585.83 72.77"><path class="cls-1" pathLength=1 d="M45.65,80.92H9.54V11.8H45.35v7H17.57V40.21h26.7v7H17.57v26.7H45.65v7Z" transform="translate(-9.04 -9.98)"/><path class="cls-1" pathLength=1 d="M108.15,80.92H99.24L74.45,26.35V80.92h-8V11.8h9l24.89,54.08V11.8h7.89V80.92Z" transform="translate(-9.04 -9.98)"/><path class="cls-1" pathLength=1 d="M169.78,76A31,31,0,0,1,151,82.25q-13.47,0-20.43-9.14t-7-26.72q0-17,6.74-26.45T151,10.48a39.17,39.17,0,0,1,9.9,1.27,24.3,24.3,0,0,1,7.89,3.38l-2.65,6.32A30.15,30.15,0,0,0,151,17.53q-9.5,0-14.18,7t-4.68,21.9q0,28.81,18.86,28.81,7.1,0,10.73-3v-17H149.31v-7h20.48V76Z" transform="translate(-9.04 -9.98)"/><path class="cls-1" pathLength=1 d="M226.27,80.92h-36.1V11.8H226v7H198.2V40.21h26.7v7H198.2v26.7h28.07v7Z" transform="translate(-9.04 -9.98)"/><path class="cls-1" pathLength=1 d="M288,80.92H250.37V11.8h8V73.92H288v7Z" transform="translate(-9.04 -9.98)"/><path class="cls-1" pathLength=1 d="M348,80.92h-8V46.63H316.31V80.92h-8V11.8h8V39.58H340V11.8h8V80.92Z" transform="translate(-9.04 -9.98)"/><path class="cls-1" pathLength=1 d="M415.85,80.92h-8.43l-7.64-24.2H377.1l-7.74,24.2H361L383.62,11.8h9.65ZM397.48,49.72l-9.06-28.61-9,28.61h18.08Z" transform="translate(-9.04 -9.98)"/><path class="cls-1" pathLength=1 d="M476,80.92h-10l-20.28-31.4h-8.92v31.4h-8V11.8h19.55q9.85,0,15.55,4.78t5.71,13.3a16.92,16.92,0,0,1-4.16,11.24,20.94,20.94,0,0,1-11.46,6.69ZM436.72,42.52h10.14a15.18,15.18,0,0,0,10.34-3.45,11,11,0,0,0,4-8.7q0-11.56-14.11-11.56H436.72V42.52Z" transform="translate(-9.04 -9.98)"/><path class="cls-1" pathLength=1 d="M488.89,11.8h13.62q13.57,0,21.75,9.23t8.18,25.35q0,16.46-8.3,25.5t-21.29,9h-14V11.8Zm8,62.12h5.68q9.85,0,15.58-7.3t5.73-20.23q0-12.83-5.76-20.21a18.7,18.7,0,0,0-15.55-7.37h-5.68V73.92Z" transform="translate(-9.04 -9.98)"/><path class="cls-1" pathLength=1 d="M594.37,18.31H573.06V80.92h-8V18.31H543.66V11.8h50.7v6.52Z" transform="translate(-9.04 -9.98)"/></svg>
+
+	<p>Some other content...</p>
+
+	<script>
+		var paths = document.querySelectorAll('#name .cls-1');
+		paths.forEach(animate);
+/*
+		function animate(elem) {
+				elem.classList.add('draw');
+		}
+*/
+		function animate(elem, index) {
+			setTimeout(function (e) {
+				elem.classList.add('draw');
+			}, index * 200);
+		}
+
+	</script>
+</body>
+
+</html>
